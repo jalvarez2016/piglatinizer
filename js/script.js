@@ -3,10 +3,31 @@
 // begins with a vowel you just add ay to the end. For example, pig becomes
 // igpay, banana becomes ananabay, and aadvark becomes aadvarkay.
 // CREATE THE FUNCTIONS BELOW
+/* global $*/
+// Document Ready Function. All of your jQuery should go in here.
 
-// Document Ready Function. All of your jQuery should go in here. 
+function wordToPigLatin(){
+	var word = $("#word").val().toLowerCase();
+	var checker = word.charAt(0);
+	console.log(word.charAt(0));
+	console.log(word);
+	if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
+		var pig = word+"ay";
+		console.log(pig);
+		$("#result").html(pig);
+	} else {
+		console.log(word);
+		var first = word.charAt(0);
+		var why = word.slice(1); + first + "ay";
+		$("#result").html(why);
+	}
+}
+
+
 $( document ).ready(function() {
-  
+  $("#submit").click(function(){
+  	wordToPigLatin();
+  });
 
 
 
