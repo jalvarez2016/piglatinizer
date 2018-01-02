@@ -9,16 +9,19 @@
 function wordToPigLatin(){
 	var word = $("#word").val().toLowerCase();
 	var checker = word.charAt(0);
-	console.log(word.charAt(0));
-	console.log(word);
 	if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
 		var pig = word+"ay";
 		console.log(pig);
 		$("#result").html(pig);
 	} else {
-		console.log(word);
 		var first = word.charAt(0);
-		var why = word.slice(1); + first + "ay";
+		console.log(word);
+		console.log(word.charAt(0));
+		console.log(word.slice(1));
+		var why = word.slice(1) + first + "ay";
+		console.log(word);
+		console.log(word.charAt(0));
+		console.log(word.slice(1));
 		$("#result").html(why);
 	}
 }
