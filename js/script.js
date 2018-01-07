@@ -15,9 +15,6 @@ function wordToPigLatin(){
 		$("#result").html(pig);
 	} else {
 		var first = word.charAt(0);
-		console.log(word);
-		console.log(word.charAt(0));
-		console.log(word.slice(1));
 		var why = word.slice(1) + first + "ay";
 		console.log(word);
 		console.log(word.charAt(0));
@@ -26,12 +23,30 @@ function wordToPigLatin(){
 	}
 }
 
+function PigLatinToword(){
+	var word = $("#inverse").val().toLowerCase();
+	var checker = word.charAt(0);
+	if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
+		var pig = word+"ay";
+		console.log(pig);
+		$("#result").html(pig);
+	} else {
+		var first = word.charAt(0);
+		var why = word.slice(1) + first + "ay";
+		console.log(word);
+		console.log(word.charAt(0));
+		console.log(word.slice(1));
+		$("#result").html(why);
+	}
+}
 
 $( document ).ready(function() {
   $("#submit").click(function(){
   	wordToPigLatin();
   });
-
+  $("#translate").click(function(){
+  	PigLatinToword();
+  });
 
 
 });
