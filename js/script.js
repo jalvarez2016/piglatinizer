@@ -25,18 +25,20 @@ function wordToPigLatin(){
 
 function PigLatinToword(){
 	var word = $("#inverse").val().toLowerCase();
-	var checker = word.charAt(0);
-	if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
-		var pig = word+"ay";
+	console.log(word.slice(-2));
+	if( word.slice(-2) === "ay" ){
+		$("#result").html(" ");
+		var pig = word.split("");
 		console.log(pig);
-		$("#result").html(pig);
+		pig.pop();
+		pig.pop();
+		console.log(pig);
+		for( var i = 0; i < pig.length + 1; i ++){
+			$("#result").append(pig[i]);
+			console.log(pig[i]);
+		}
 	} else {
-		var first = word.charAt(0);
-		var why = word.slice(1) + first + "ay";
-		console.log(word);
-		console.log(word.charAt(0));
-		console.log(word.slice(1));
-		$("#result").html(why);
+		$("#result").html("Invalid input");
 	}
 }
 
