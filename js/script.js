@@ -23,6 +23,44 @@ function wordToPigLatin(){
 	}
 }
 
+function SentencetoPiglatin() {
+	$("#result").html("");
+	var word = $("#word").val().toLowerCase();
+	var sentence = word.split(' ');
+	for(var i = 0; i<sentence.length; i ++){
+		var each = sentence[i];
+		var checker = each.charAt(0);
+		if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
+			$("#result").append(sentence[i] + "ay ");
+		} else {
+			var why = each.slice(1) + checker +"ay ";
+			$("#result").append(why);
+		}
+	}
+}
+
+function PigLatinToSentence(){
+	$("#result").html("");
+	var word = $("#inverse").val().toLowerCase();
+	var sentence = word.split(" ");
+	for(var i = 0; i < sentence.length; i++){
+		var each = sentence[i];
+		if(each.slice(-2) === "ay"){
+			var pig = each.split("");
+			console.log(pig);
+			pig.pop();
+			pig.pop();
+			console.log(pig);
+			for( var a = 0; a < pig.length + 1; a ++){
+				$("#result").append(pig[a] + " ");
+				console.log(pig[a]);
+			}
+		} else {
+			$("#result").html("Invalid input");
+		}
+	}
+}
+
 function PigLatinToword(){
 	var word = $("#inverse").val().toLowerCase();
 	console.log(word.slice(-2));
@@ -44,10 +82,10 @@ function PigLatinToword(){
 
 $( document ).ready(function() {
   $("#submit").click(function(){
-  	wordToPigLatin();
+  	SentencetoPiglatin();
   });
   $("#translate").click(function(){
-  	PigLatinToword();
+  	PigLatinToSentence();
   });
 
 
