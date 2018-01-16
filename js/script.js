@@ -30,9 +30,14 @@ function SentencetoPiglatin() {
 	for(var i = 0; i<sentence.length; i ++){
 		var each = sentence[i];
 		var checker = each.charAt(0);
+		var second = each.charAt(1);
+		var cluster = checker + second;
 		if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
 			$("#result").append(sentence[i] + "ay ");
-		} else {
+		} else if(cluster === "ch" || cluster === "th" || cluster === "sh"){
+			var please = each.slice(2) + cluster + "ay ";
+			$("#result").append(please);
+		} else{
 			var why = each.slice(1) + checker +"ay ";
 			$("#result").append(why);
 		}
