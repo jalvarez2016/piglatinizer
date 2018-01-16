@@ -43,12 +43,23 @@ function PigLatinToSentence(){
 	$("#result").html("");
 	var word = $("#inverse").val().toLowerCase();
 	var sentence = word.split(" ");
-	for( var i = 0; i<sentence.length; i++){
-		console.log(sentence[i]);
-		var pigword = sentence[i];
-		var right = pigword.length - 2;
-		var realword = pigword.slice(0,right) + " ";
-		$("#result").append(realword);
+	for(var i = 0; i < sentence.length; i++){
+		var each = sentence[i];
+		if(each.slice(-2) === "ay"){
+			var pig = each.split("");
+			console.log(pig);
+			pig.pop();
+			pig.pop();
+			console.log(pig);
+			for( var a = 0; a < pig.length + 1; a ++){
+				$("#result").append(pig[a]);
+				var pig = [];
+				pig
+				console.log(pig[a]);
+			}
+		} else {
+			$("#result").html("Invalid input");
+		}
 	}
 }
 
@@ -72,13 +83,15 @@ function PigLatinToword(){
 }
 
 $( document ).ready(function() {
+  $("#clear").click(function(){
+  	$("#result").html("");
+  });
   $("#submit").click(function(){
   	SentencetoPiglatin();
   });
   $("#translate").click(function(){
   	PigLatinToSentence();
   });
-
 
 });
 
