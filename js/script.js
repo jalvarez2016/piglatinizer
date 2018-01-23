@@ -31,12 +31,17 @@ function SentencetoPiglatin() {
 		var each = sentence[i];
 		var checker = each.charAt(0);
 		var second = each.charAt(1);
+		var third = each.charAt(2);
+		var clusty = checker + second + third;
 		var cluster = checker + second;
 		if( checker === "a" || checker === "e" || checker === "i" || checker === "o" || checker === "u" ){
 			$("#result").append(sentence[i] + "ay ");
 		} else if(cluster === "ch" || cluster === "th" || cluster === "sh"){
 			var please = each.slice(2) + cluster + "ay ";
 			$("#result").append(please);
+		} else if(clusty === "str" ){
+			var three = each.slice(3) + clusty + "ay ";
+			$("#result").append(three);
 		} else{
 			var why = each.slice(1) + checker +"ay ";
 			$("#result").append(why);
@@ -58,9 +63,6 @@ function PigLatinToSentence(){
 			console.log(pig);
 			for( var a = 0; a < pig.length + 1; a ++){
 				$("#result").append(pig[a]);
-				var pig = [];
-				pig
-				console.log(pig[a]);
 			}
 		} else {
 			$("#result").html("Invalid input");
@@ -87,15 +89,48 @@ function PigLatinToword(){
 	}
 }
 
+function SentencetoCode(){
+	$("#show").html("");
+	var word = $("#extend").val().toLocaleLowerCase();
+	console.log(word);
+	var why = word.split("");
+	console.log(why);
+	var letters = why;
+	console.log(letters);
+	for(var i = 0; i<letters.length; i++){
+		var now = letters[i];
+		if(now === "a" || now === "e" || now === "i" || now === "o" || now === "u"){
+			var save = " DOG" + now + "S AR" + now+ now+ now+ now+ now + "E THE BEST" + now;
+			$("#show").append(save + " ");
+		} else {
+			$("#show").append(now);
+		}
+	}
+}
+
+function CodetoSentence(){
+	
+}
+
 $( document ).ready(function() {
   $("#clear").click(function(){
   	$("#result").html("");
   });
+  
   $("#submit").click(function(){
   	SentencetoPiglatin();
   });
+  
   $("#translate").click(function(){
   	PigLatinToSentence();
+  });
+  
+  $("#encode").click(function(){
+  	SentencetoCode();
+  });
+  
+  $("#decode").click(function(){
+  	CodetoSentence();
   });
 
 });
