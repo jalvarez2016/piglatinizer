@@ -6,6 +6,8 @@
 /* global $*/
 // Document Ready Function. All of your jQuery should go in here.
 
+var dogs = ["DOGS ARE THE BEST"]
+
 function wordToPigLatin(){
 	var word = $("#word").val().toLowerCase();
 	var checker = word.charAt(0);
@@ -109,7 +111,15 @@ function SentencetoCode(){
 }
 
 function CodetoSentence(){
-	
+	$("#show").html("");
+	var word = $("#shrink").val();
+	console.log(word);
+	var why = word.split("");
+	var cut = dogs.split("");
+	for(var i = 0; i<why.length ; i++){
+		var now = why[i];
+		if(now === )
+	}
 }
 
 $( document ).ready(function() {
