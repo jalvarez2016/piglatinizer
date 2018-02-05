@@ -118,7 +118,12 @@ function CodetoSentence(){
 	var cut = dogs.split("");
 	for(var i = 0; i<why.length ; i++){
 		var now = why[i];
-		if(now === )
+		var select = cut[i];
+		if(now === select){
+			
+		} else {
+			$("")
+		}
 	}
 }
 
